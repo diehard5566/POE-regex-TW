@@ -1,0 +1,97 @@
+.maps-container {
+    height: calc(100vh - [header-height]px); 
+    overflow-y: auto;
+}
+
+.modifiers-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+}
+
+.modifier-selector {
+    width: 48%;
+}
+
+.modifier-selector ul {
+    max-height: none;
+    overflow-y: visible;
+}
+
+.modifier-selector li {
+    font-size: 20px;
+    padding: 4px 5px;
+}
+
+.quantity-inputs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.item-quantity-input,
+.pack-size-input {
+    display: flex;
+    align-items: center;
+}
+
+.item-quantity-input label,
+.pack-size-input label {
+    margin-right: 5px;
+    white-space: nowrap;
+    flex-shrink: 0; 
+}
+
+.input-with-clear {
+    position: relative;
+    display: inline-block;
+    width: 130px;
+}
+
+.input-with-clear input {
+    width: 100%; 
+    padding: 5px;
+    padding-right: 25px;
+    box-sizing: border-box; 
+}
+
+.clear-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #888;
+}
+
+.clear-button:hover {
+    color: #333;
+}
+
+.t17-checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  
+  .t17-checkbox input {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .t17-checkbox span {
+    color: hsl(271, 100%, 78%);
+    font-size: 25px;
+  }
+
+  .t17-checkbox-text {
+    color: hsl(271, 100%, 78%);
+    font-size: 16px;
+    user-select: none;
+  }

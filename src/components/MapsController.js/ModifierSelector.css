@@ -1,0 +1,34 @@
+.modifier-selector {
+    width: 45%;
+    text-align: left;
+}
+
+.modifier-selector input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.modifier-selector ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modifier-selector li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.modifier-selector li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modifier-selector li.selected {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+.modifier-selector li.t17-modifier {
+    color: hsl(271, 100%, 78%);
+}
