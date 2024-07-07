@@ -19,10 +19,6 @@ const Maps = () => {
 		try {
 			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps?type=1`);
 
-			console.log('🚀 -----------------------------------------------------------------------------------🚀');
-			console.log('🚀 ~ fetchModifiers ~ process.env.REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
-			console.log('🚀 -----------------------------------------------------------------------------------🚀');
-
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
 			}
