@@ -7,6 +7,7 @@ class Items extends Component {
         try {
             const response = await fetch("https://poe-regex-tw-backend.vercel.app/api/v1/items");
             const data = await response.text();
+
             this.setState({ apiResponse: data });
         } catch (error) {
             this.setState({ error: '無法加載數據。' });
@@ -19,10 +20,12 @@ class Items extends Component {
 
     renderContent() {
         const { apiResponse, error } = this.state;
-        if (error) {
-            return <p>錯誤：{error}</p>;
-        }
-        return apiResponse ? <p>{apiResponse}</p> : <p>加載中...</p>;
+
+            if (error) {
+                return <p>錯誤：{error}</p>;
+            }
+            
+            return apiResponse ? <p>{apiResponse}</p> : <p>加載中...</p>;
     }
 
     render() {

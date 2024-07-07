@@ -5,14 +5,13 @@ module.exports = {
 		es6: true,
 		node: true,
 		es2021: true,
-	},
-	extends: [
-		'xo',
-		'xo-react',
+	  },
+	  extends: [
+		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:import/recommended',
-	],
-	globals: {
+	  ],
+	  globals: {
 		jest: 'readonly',
 		describe: 'readonly',
 		test: 'readonly',
@@ -21,28 +20,29 @@ module.exports = {
 		afterEach: 'readonly',
 		beforeAll: 'readonly',
 		afterAll: 'readonly',
-	},
-	parser: 'babel-eslint',
-	parserOptions: {
+	  },
+	  parser: '@babel/eslint-parser',
+	  parserOptions: {
 		ecmaFeatures: {
-			jsx: true,
+		  jsx: true,
 		},
 		ecmaVersion: 2018,
-	},
-	plugins: [
+		sourceType: 'module',
+	  },
+	  plugins: [
 		'react',
 		'react-hooks',
 		'import',
-	],
-	settings: {
+	  ],
+	  settings: {
 		react: {
-			version: '16.9',
+		  version: 'detect',
 		},
 		'import/ignore': [
-			'node_modules',
-			'\\.(coffee|scss|css|less|hbs|svg|json)$',
+		  'node_modules',
+		  '\\.(coffee|scss|css|less|hbs|svg|json)$',
 		],
-	},
+	  },
 	rules: {
 		'padding-line-between-statements': [
 			'error',
