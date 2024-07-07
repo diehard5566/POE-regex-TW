@@ -1,3 +1,4 @@
+/* eslint-disable-next-line */
 .maps-container {
     height: calc(100vh - [header-height]px); 
     overflow-y: auto;
