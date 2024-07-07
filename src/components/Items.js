@@ -5,7 +5,7 @@ class Items extends Component {
 
     async callAPI() {
         try {
-            const response = await fetch("https://poe-regex-tw-backend.vercel.app/api/v1/items");
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/items`);
             const data = await response.text();
 
             this.setState({ apiResponse: data });
@@ -24,7 +24,7 @@ class Items extends Component {
             if (error) {
                 return <p>錯誤：{error}</p>;
             }
-            
+
             return apiResponse ? <p>{apiResponse}</p> : <p>加載中...</p>;
     }
 

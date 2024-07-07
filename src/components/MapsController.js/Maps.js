@@ -17,7 +17,8 @@ const Maps = () => {
 
 	const fetchModifiers = useCallback(async () => {
 		try {
-			const response = await fetch('https://poe-regex-tw-backend.vercel.app/api/v1/maps?type=1');
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps?type=1`);
+
 
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
@@ -34,7 +35,7 @@ const Maps = () => {
 
 	const fetchT17Modifiers = useCallback(async () => {
 		try {
-			const response = await fetch('https://poe-regex-tw-backend.vercel.app/api/v1/maps/t17?type=2');
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps/t17?type=2`);
 
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
@@ -81,7 +82,7 @@ const Maps = () => {
 
 	const handleModsChange = useCallback(async (newWantedMods, newUnwantedMods, newItemQuantity, newPackSize) => {
 		try {
-			const response = await fetch('https://poe-regex-tw-backend.vercel.app/api/v1/maps/generateMapRegex', {
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps/generateMapRegex`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

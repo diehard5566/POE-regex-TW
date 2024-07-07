@@ -7,7 +7,7 @@ module.exports = {
 		es2021: true,
 	  },
 	  extends: [
-		'react-app', 'react-app/jest'
+		'react-app', 'react-app/jest',
 	  ],
 	  globals: {
 		jest: 'readonly',

@@ -5,7 +5,7 @@ class Exchange extends Component {
 
     async callAPI() {
 		try {
-			const response = await fetch('https://poe-regex-tw-backend.vercel.app/api/v1/exchange');
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/exchange`);
 			const data = await response.text();
 		
 			this.setState({ apiResponse: data });
