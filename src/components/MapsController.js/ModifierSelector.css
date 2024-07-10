@@ -1,6 +1,8 @@
 .modifier-selector {
-    width: 45%;
-    text-align: left;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: 15px;
+    border-radius: 4px;
 }
 
 .modifier-selector input {
@@ -21,14 +23,11 @@
     cursor: pointer;
 }
 
-.modifier-selector li:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
+.modifier-selector li:hover,
 .modifier-selector li.selected {
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
 }
-
 .modifier-selector li.t17-modifier {
     color: hsl(271, 100%, 78%);
 }

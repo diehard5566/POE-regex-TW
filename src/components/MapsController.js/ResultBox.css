@@ -7,6 +7,10 @@
     justify-content: space-between;
     align-items: flex-start;
     padding: 15px;
+    border: 1px solid #3a3f4b; /* 添加邊框以區分 */
+    border-radius: 4px; /* 添加圓角 */
+    margin-bottom: 20px; /* 增加底部間距 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
 }
 
 .result {

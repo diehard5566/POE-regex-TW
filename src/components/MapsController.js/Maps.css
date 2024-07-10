@@ -1,7 +1,8 @@
 /* eslint-disable-next-line */
 .maps-container {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
+    background-color: var(--color-bg);
+    padding: 20px;
+    color: var(--color-text);
 }
 
 .modifiers-container {
@@ -29,6 +30,11 @@
     justify-content: flex-start;
     gap: 15px;
     margin: 25px 0;
+    color: var(--color-text-secondary);
+}
+
+.quantity-inputs label {
+    color: var(--color-text-secondary);
 }
 
 .item-quantity-input,

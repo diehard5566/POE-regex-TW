@@ -1,17 +1,24 @@
 .container {
   display: flex;
   height: 100vh;
+  background-color: var(--color-site-bg);
 }
 
 .sidebar {
   width: 20%;
-  background-color: #f0f0f0;
+  background-color: var(--color-bg);
   padding: 10px;
+}
+
+.sidebar a {
+  color: var(--color-text);
+  text-decoration: none;
 }
 
 .main {
   width: 80%;
   padding: 10px;
+  background-color: var(--color-site-bg);
 }
 
 h2 {
