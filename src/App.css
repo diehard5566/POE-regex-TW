@@ -1,13 +1,18 @@
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   background-color: var(--color-site-bg);
 }
 
 .sidebar {
-  width: 20%;
+  width: 13%;
   background-color: var(--color-bg);
   padding: 10px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .sidebar a {
@@ -19,6 +24,8 @@
   width: 80%;
   padding: 10px;
   background-color: var(--color-site-bg);
+  min-height: 100vh;
+  height: auto;
 }
 
 h2 {

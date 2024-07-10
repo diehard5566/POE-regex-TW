@@ -13,9 +13,9 @@ const App = () => (
 			<div className="sidebar">
 				<h2>POE regex TW</h2>
 				<ul>
-					<li><Link to="/maps">地圖詞綴檢索</Link></li>
-					<li><Link to="/items">物品詞綴檢索</Link></li>
-					<li><Link to="/exchange">價格計算器</Link></li>
+					<li><Link to="/maps">地圖詞綴</Link></li>
+					<li><Link to="/items">物品詞綴</Link></li>
+					<li><Link to="/exchange">神聖混沌即時比值</Link></li>
 				</ul>
 			</div>
 			<div className="main">
