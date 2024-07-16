@@ -31,6 +31,8 @@
     gap: 15px;
     margin: 25px 0;
     color: var(--color-text-secondary);
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .quantity-inputs label {
@@ -41,6 +43,7 @@
 .pack-size-input {
     display: flex;
     align-items: center;
+    flex: 0 0 auto;
 }
 
 .item-quantity-input label,
@@ -84,21 +87,49 @@
     align-items: center;
     margin-left: 15px;
     cursor: pointer;
-  }
-  
-  .t17-checkbox input {
+}
+
+.t17-checkbox input {
     margin-right: 8px;
     width: 20px;
     height: 20px;
-  }
-  
-  .t17-checkbox span {
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+
+.t17-checkbox span {
     color: hsl(271, 100%, 78%);
     font-size: 25px;
-  }
+}
 
-  .t17-checkbox-text {
+.t17-checkbox-text {
     color: hsl(271, 100%, 78%);
     font-size: 16px;
     user-select: none;
-  }
+}
+
+.all-good-mods-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.all-good-mods-toggle button {
+    padding: 10px 4px;
+    margin-left: 6px;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+.all-good-mods-toggle button.active {
+    background-color: #58a18f;
+}
+
+.all-good-mods-toggle button:hover {
+    background-color: #7c7b7b;
+}

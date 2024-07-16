@@ -14,6 +14,7 @@ const Maps = () => {
 	const [warning, setWarning] = useState('');
 	const [itemQuantity, setItemQuantity] = useState('');
 	const [packSize, setPackSize] = useState('');
+	const [allGoodMods, setAllGoodMods] = useState(false); 
 
 	const fetchModifiers = useCallback(async () => {
 		try {
@@ -91,6 +92,7 @@ const Maps = () => {
 					unwantedMods: newUnwantedMods,
 					itemQuantity: newItemQuantity ? parseInt(newItemQuantity, 10) : undefined,
 					packSize: newPackSize ? parseInt(newPackSize, 10) : undefined,
+					allGoodMods: allGoodMods, 
 				}),
 			});
 
@@ -106,7 +108,7 @@ const Maps = () => {
 			console.error('生成正則表達式時出錯：', error);
 			setError('生成正則表達式時發生錯誤');
 		}
-	}, []);
+	}, [allGoodMods]);
 
 	const handleReset = () => {
 		setWantedMods([]);
@@ -189,6 +191,20 @@ const Maps = () => {
 						/>
 						<span>t17詞綴</span>
 					</label>
+					<div className="all-good-mods-toggle">
+                        <button
+                            onClick={() => setAllGoodMods(false)}
+                            className={!allGoodMods ? 'active' : ''}
+                        >
+							任一詞即可
+                        </button>
+                        <button
+                            onClick={() => setAllGoodMods(true)}
+                            className={allGoodMods ? 'active' : ''}
+                        >
+							詞全對才亮
+                        </button>
+                    </div>
 				</div>
 				<div className="modifiers-container">
 					<ModifierSelector
