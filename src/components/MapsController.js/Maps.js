@@ -208,7 +208,7 @@ const Maps = () => {
 				</div>
 				<div className="modifiers-container">
 					<ModifierSelector
-						title="不要的詞..."
+						title="不要的詞...(不會高亮！)"
 						modifiers={allModifiers}
 						selectedMods={unwantedMods}
 						onSelectMod={mod => {

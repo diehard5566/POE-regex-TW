@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import Maps from './components/MapsController.js/Maps';
-import Items from './components/Items';
-import Exchange from './components/Exchange';
+import Items from './components/ItemController/Items';
+import Exchange from './components/ExchangeController/Exchange';
 import './style/global.css';
 
 const App = () => (

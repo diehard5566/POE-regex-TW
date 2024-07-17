@@ -1,0 +1,125 @@
+.exchange-container {
+    color: #333 !important; /* 深色文字 */
+    padding: 20px !important;
+    font-family: Arial, sans-serif !important;
+    background-color: #2a2a2a !important; /* 淺色背景 */
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.exchange-title {
+    color: #ffffff !important;
+    font-size: 24px !important;
+    margin-bottom: 15px !important;
+}
+
+.exchange-subtitle {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+}
+
+.exchange-official-link {
+    display: inline-block !important;
+    margin-bottom: 20px !important;
+    color: #3498db !important;
+    text-decoration: none !important;
+}
+
+.exchange-official-link:hover {
+    text-decoration: underline !important;
+}
+
+.exchange-rates-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+}
+
+.exchange-rates-row span {
+    background-color: #3498db !important;
+    color: white !important;
+    padding: 5px 10px !important;
+    border-radius: 4px !important;
+}
+
+.exchange-main-rate {
+    margin-top: 20px !important;
+}
+
+.exchange-note {
+    color: #7f8c8d !important;
+    font-style: italic !important;
+    margin-top: 1px !important;
+    margin-bottom: 0px !important;
+}
+
+.exchange-rate-list {
+    list-style-type: none !important;
+    padding: 0 !important;
+}
+
+.exchange-rate-list li {
+    background-color: #2a2a2a !important;
+    color: #ffffff !important;
+    padding: 5px 10px !important;
+    margin-bottom: 3px !important;
+    border-radius: 4px !important;
+}
+
+.error-message {
+    color: #e74c3c !important;
+}
+
+.loading-message {
+    color: #7f8c8d !important;
+}
+
+.exchange-rate-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+.exchange-rate-list {
+    flex: 1;
+}
+
+.exchange-main-rate-display {
+    right: 400px;
+    top: 100px;
+    background-color: #ecf0f1;
+    position: absolute;
+}
+
+.exchange-main-rate-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* 您可以調整這些值來自定義外觀 */
+.exchange-main-rate-display {
+    /* 調整背景顏色 */
+    background-color: #3498db;
+    /* 調整文字顏色 */
+    color: white;
+    /* 調整內邊距 */
+    padding: 15px;
+    /* 調整圓角 */
+    border-radius: 8px;
+    /* 添加陰影 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exchange-main-rate-value {
+    /* 調整字體大小 */
+    font-size: 50px;
+    /* 調整字體粗細 */
+    font-weight: 500;
+    /* 調整行高 */
+    line-height: 2;
+    color: white;
+}
