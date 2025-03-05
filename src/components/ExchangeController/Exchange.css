@@ -1,79 +1,79 @@
 .exchange-container {
-    color: #333 !important; /* 深色文字 */
-    padding: 20px !important;
-    font-family: Arial, sans-serif !important;
-    background-color: #2a2a2a !important; /* 淺色背景 */
-    border-radius: 8px !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    color: #FFFCF2; /* 使用全局變量中定義的文字顏色 */
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg); /* 使用全局變量中定義的背景顏色 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .exchange-title {
-    color: #ffffff !important;
-    font-size: 24px !important;
-    margin-bottom: 15px !important;
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
 .exchange-subtitle {
-    color: #ffffff !important;
-    font-size: 18px !important;
-    margin-top: 0px !important;
-    margin-bottom: 10px !important;
+    color: #ffffff;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 .exchange-official-link {
-    display: inline-block !important;
-    margin-bottom: 20px !important;
-    color: #3498db !important;
-    text-decoration: none !important;
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #3498db;
+    text-decoration: none;
 }
 
 .exchange-official-link:hover {
-    text-decoration: underline !important;
+    text-decoration: underline;
 }
 
 .exchange-rates-row {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .exchange-rates-row span {
-    background-color: #3498db !important;
-    color: white !important;
-    padding: 5px 10px !important;
-    border-radius: 4px !important;
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
 .exchange-main-rate {
-    margin-top: 20px !important;
+    margin-top: 20px;
 }
 
 .exchange-note {
-    color: #7f8c8d !important;
-    font-style: italic !important;
-    margin-top: 1px !important;
-    margin-bottom: 0px !important;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 1px;
+    margin-bottom: 0px;
 }
 
 .exchange-rate-list {
-    list-style-type: none !important;
-    padding: 0 !important;
+    list-style-type: none;
+    padding: 0;
 }
 
 .exchange-rate-list li {
-    background-color: #2a2a2a !important;
-    color: #ffffff !important;
-    padding: 5px 10px !important;
-    margin-bottom: 3px !important;
-    border-radius: 4px !important;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-bottom: 3px;
+    border-radius: 4px;
 }
 
 .error-message {
-    color: #e74c3c !important;
+    color: #e74c3c;
 }
 
 .loading-message {
-    color: #7f8c8d !important;
+    color: #7f8c8d;
 }
 
 .exchange-rate-wrapper {
@@ -88,16 +88,20 @@
 }
 
 .exchange-main-rate-display {
-    right: 400px;
-    top: 100px;
-    background-color: #ecf0f1;
-    position: absolute;
+    position: relative; /* 改為相對定位 */
+    margin-top: 20px; /* 添加上邊距 */
+    margin-left: 20px; /* 添加左邊距 */
+    background-color: #3498db;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* 使元素寬度適應內容 */
 }
 
 .exchange-main-rate-value {
     font-size: 24px;
     font-weight: bold;
-    color: #2c3e50;
+    color: white;
 }
 
 /* 您可以調整這些值來自定義外觀 */
