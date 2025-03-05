@@ -20,6 +20,7 @@ const Exchange = () => {
                 setMainRate(data.mainRate);
             } catch (error) {
                 setError('無法加載數據。');
+                console.error('Error fetching exchange data:', error);
             }
         };
 
@@ -71,16 +72,16 @@ const Exchange = () => {
             <div className="exchange-main-rate">
                 <h3 className="exchange-subtitle">換算成c：</h3>
                 <h6 className="exchange-note">"取第二筆為基準作換算，小數點無條件捨去"</h6>
-                    <div className="exchange-rate-wrapper">
-                        <ul className="exchange-rate-list">
-                            {calculateDRates().map((rate, index) => (
-                                <li key={index}>{rate}</li>
-                            ))}
-                        </ul>
-                        <div className="exchange-main-rate-display">
-                                <span className="exchange-main-rate-value"> 1D = {mainRate}c</span>
-                        </div>
+                <div className="exchange-rate-wrapper">
+                    <ul className="exchange-rate-list">
+                        {calculateDRates().map((rate, index) => (
+                            <li key={index}>{rate}</li>
+                        ))}
+                    </ul>
+                    <div className="exchange-main-rate-display">
+                        <span className="exchange-main-rate-value">1D = {mainRate}c</span>
                     </div>
+                </div>
             </div>
         </div>
     );
