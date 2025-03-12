@@ -1,20 +1,22 @@
 .exchange-container {
-    color: #FFFCF2; /* 使用全局變量中定義的文字顏色 */
+    color: var(--color-text);
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: var(--color-bg); /* 使用全局變量中定義的背景顏色 */
+    background-color: var(--color-bg);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+    position: relative;
 }
 
 .exchange-title {
-    color: #ffffff;
+    color: var(--color-text);
     font-size: 24px;
     margin-bottom: 15px;
 }
 
 .exchange-subtitle {
-    color: #ffffff;
+    color: var(--color-text);
     font-size: 18px;
     margin-top: 0px;
     margin-bottom: 10px;
@@ -35,6 +37,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 15px;
 }
 
 .exchange-rates-row span {
@@ -49,53 +52,82 @@
 }
 
 .exchange-note {
-    color: #7f8c8d;
+    color: var(--color-text-secondary);
     font-style: italic;
     margin-top: 1px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .exchange-rate-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .exchange-rate-list li {
-    background-color: #2a2a2a;
-    color: #ffffff;
-    padding: 5px 10px;
-    margin-bottom: 3px;
+    background-color: var(--color-area);
+    color: var(--color-text);
+    padding: 8px 12px;
+    margin-bottom: 5px;
     border-radius: 4px;
 }
 
 .error-message {
-    color: #e74c3c;
+    color: var(--color-text-error);
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 4px;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.retry-button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.retry-button:hover {
+    background-color: #2980b9;
 }
 
 .loading-message {
-    color: #7f8c8d;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 20px;
 }
 
 .exchange-rate-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    position: relative;
+    flex-wrap: wrap;
 }
 
 .exchange-rate-list {
     flex: 1;
+    min-width: 200px;
+    margin-right: 20px;
 }
 
 .exchange-main-rate-display {
-    position: relative; /* 改為相對定位 */
-    margin-top: 20px; /* 添加上邊距 */
-    margin-left: 20px; /* 添加左邊距 */
     background-color: #3498db;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: inline-block; /* 使元素寬度適應內容 */
+    margin-top: 10px;
+    display: inline-block;
 }
 
 .exchange-main-rate-value {
@@ -104,26 +136,27 @@
     color: white;
 }
 
-/* 您可以調整這些值來自定義外觀 */
-.exchange-main-rate-display {
-    /* 調整背景顏色 */
-    background-color: #3498db;
-    /* 調整文字顏色 */
-    color: white;
-    /* 調整內邊距 */
-    padding: 15px;
-    /* 調整圓角 */
-    border-radius: 8px;
-    /* 添加陰影 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.exchange-update-info {
+    margin-top: 20px;
+    color: var(--color-text-secondary);
+    font-size: 12px;
+    text-align: right;
 }
 
-.exchange-main-rate-value {
-    /* 調整字體大小 */
-    font-size: 50px;
-    /* 調整字體粗細 */
-    font-weight: 500;
-    /* 調整行高 */
-    line-height: 2;
-    color: white;
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .exchange-rate-wrapper {
+        flex-direction: column;
+    }
+    
+    .exchange-rate-list {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .exchange-main-rate-display {
+        width: 100%;
+        text-align: center;
+    }
 }

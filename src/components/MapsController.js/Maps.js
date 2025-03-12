@@ -18,7 +18,11 @@ const Maps = () => {
 
 	const fetchModifiers = useCallback(async () => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps?type=1`);
+			const apiUrl = process.env.REACT_APP_API_URL || '';
+
+			console.log('使用的 API URL:', apiUrl);
+			
+			const response = await fetch(`${apiUrl}/maps?type=1`);
 
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
@@ -29,13 +33,15 @@ const Maps = () => {
 			return Object.keys(data).map(mod => ({ mod, isT17: false })) || [];
 		} catch (error) {
 			console.error('Failed to fetch modifiers:', error);
+			setError('無法載入詞綴數據，請檢查網路連接或重新整理頁面');
 			return [];
 		}
 	}, []);
 
 	const fetchT17Modifiers = useCallback(async () => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps/t17?type=2`);
+			const apiUrl = process.env.REACT_APP_API_URL || '';
+			const response = await fetch(`${apiUrl}/maps/t17?type=2`);
 
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
@@ -46,6 +52,7 @@ const Maps = () => {
 			return Object.keys(data).map(mod => ({ mod, isT17: true })) || [];
 		} catch (error) {
 			console.error('Failed to fetch T17 modifiers:', error);
+			setError('無法載入 T17 詞綴數據，請檢查網路連接或重新整理頁面');
 			return [];
 		}
 	}, []);
@@ -82,7 +89,8 @@ const Maps = () => {
 
 	const handleModsChange = useCallback(async (newWantedMods, newUnwantedMods, newItemQuantity, newPackSize) => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/maps/generateMapRegex`, {
+			const apiUrl = process.env.REACT_APP_API_URL || '';
+			const response = await fetch(`${apiUrl}/maps/generateMapRegex`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -104,6 +112,7 @@ const Maps = () => {
 			const newRegex = data.regex;
 
 			setRegex(newRegex);
+			setError('');
 		} catch (error) {
 			console.error('生成正則表達式時出錯：', error);
 			setError('生成正則表達式時發生錯誤');
