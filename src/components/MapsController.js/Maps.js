@@ -16,35 +16,53 @@ const Maps = () => {
 	const [packSize, setPackSize] = useState('');
 	const [allGoodMods, setAllGoodMods] = useState(false); 
 
+	const getApiUrl = useCallback((endpoint) => {
+		let baseUrl = process.env.REACT_APP_API_URL || '';
+		
+		console.log('原始 API URL 基礎路徑:', baseUrl);
+		
+		// 檢查 baseUrl 是否已經包含 /api/v1
+		if (baseUrl.includes('/api/v1')) {
+			// 如果已經包含，則直接添加端點
+			return `${baseUrl}/${endpoint}`;
+		} else {
+			// 如果不包含，則添加 /api/v1 和端點
+			return `${baseUrl}/api/v1/${endpoint}`;
+		}
+	}, []);
+
 	const fetchModifiers = useCallback(async () => {
 		try {
-			const apiUrl = process.env.REACT_APP_API_URL || '';
-
-			console.log('使用的 API URL:', apiUrl);
+			const apiUrl = getApiUrl('maps?type=1');
 			
-			const response = await fetch(`${apiUrl}/maps?type=1`);
+			console.log('獲取地圖詞綴的 API URL:', apiUrl);
+			
+			const response = await fetch(apiUrl);
 
 			if (!response.ok) {
-				throw new Error('Network response was not ok');
+				throw new Error(`網絡響應錯誤: ${response.status} ${response.statusText}`);
 			}
 
 			const data = await response.json();
 
 			return Object.keys(data).map(mod => ({ mod, isT17: false })) || [];
 		} catch (error) {
-			console.error('Failed to fetch modifiers:', error);
+			console.error('無法獲取地圖詞綴:', error);
 			setError('無法載入詞綴數據，請檢查網路連接或重新整理頁面');
 			return [];
 		}
-	}, []);
+	}, [getApiUrl]);
 
 	const fetchT17Modifiers = useCallback(async () => {
 		try {
-			const apiUrl = process.env.REACT_APP_API_URL || '';
-			const response = await fetch(`${apiUrl}/maps/t17?type=2`);
+			const apiUrl = getApiUrl('maps/t17?type=2');
+			
+			console.log('獲取 T17 地圖詞綴的 API URL:', apiUrl);
+			
+			const response = await fetch(apiUrl);
 
 			if (!response.ok) {
-				throw new Error('Network response was not ok');
+				throw new Error(`網絡響應錯誤: ${response.status} ${response.statusText}`);
 			}
 
 			const data = await response.json();
@@ -55,7 +73,7 @@ const Maps = () => {
 			setError('無法載入 T17 詞綴數據，請檢查網路連接或重新整理頁面');
 			return [];
 		}
-	}, []);
+	}, [getApiUrl]);
 
 	useEffect(() => {
 		const getInitialModifiers = async () => {
@@ -89,8 +107,8 @@ const Maps = () => {
 
 	const handleModsChange = useCallback(async (newWantedMods, newUnwantedMods, newItemQuantity, newPackSize) => {
 		try {
-			const apiUrl = process.env.REACT_APP_API_URL || '';
-			const response = await fetch(`${apiUrl}/maps/generateMapRegex`, {
+			const apiUrl = getApiUrl('maps/generateMapRegex');
+			const response = await fetch(apiUrl, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -117,7 +135,7 @@ const Maps = () => {
 			console.error('生成正則表達式時出錯：', error);
 			setError('生成正則表達式時發生錯誤');
 		}
-	}, [allGoodMods]);
+	}, [allGoodMods, getApiUrl]);
 
 	const handleReset = () => {
 		setWantedMods([]);
