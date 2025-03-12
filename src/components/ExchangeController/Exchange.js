@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Exchange.css';
 
 function Exchange() {
@@ -8,6 +8,22 @@ function Exchange() {
     const [officialLink, setOfficialLink] = useState('');
     const [exchangeRates, setExchangeRates] = useState([]);
     const [mainRate, setMainRate] = useState(null);
+
+    // 處理 API URL 路徑，確保在本地和線上環境都能正常工作
+    const getApiUrl = useCallback((endpoint) => {
+        let baseUrl = process.env.REACT_APP_API_URL || '';
+        
+        console.log('原始 API URL 基礎路徑:', baseUrl);
+        
+        // 檢查 baseUrl 是否已經包含 /api/v1
+        if (baseUrl.includes('/api/v1')) {
+            // 如果已經包含，則直接添加端點
+            return `${baseUrl}/${endpoint}`;
+        } else {
+            // 如果不包含，則添加 /api/v1 和端點
+            return `${baseUrl}/api/v1/${endpoint}`;
+        }
+    }, []);
 
     useEffect(() => {
         fetchData();
@@ -24,11 +40,11 @@ function Exchange() {
         setError(null);
         
         try {
-            const apiUrl = process.env.REACT_APP_API_URL || '';
-
-            console.log('使用的 API URL:', apiUrl);
+            const apiUrl = getApiUrl('exchange');
             
-            const response = await fetch(`${apiUrl}/exchange`);
+            console.log('使用的匯率 API URL:', apiUrl);
+            
+            const response = await fetch(apiUrl);
             
             if (!response.ok) {
                 throw new Error(`API 回應錯誤: ${response.status} ${response.statusText}`);
