@@ -8,7 +8,16 @@ const Items = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/items`);
+                const apiUrl = process.env.REACT_APP_API_URL || '';
+
+                console.log('使用的 API URL:', apiUrl);
+                
+                const response = await fetch(`${apiUrl}/items`);
+    
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
                 const data = await response.text();
                 
                 setApiResponse(data);
